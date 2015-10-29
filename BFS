@@ -1,0 +1,19 @@
+void bfs(int s){ 
+	visited[s]=true;
+	level[s]=0;
+	queue <int> q;
+	q.push(s);
+	int parent;
+	while(!q.empty()){
+		parent=q.front();
+		q.pop();
+		for(int i=0; i<adj[parent].size(); i++){
+			
+			if(!visited[ adj[parent][i] ]) {
+				level[adj[parent][i]]=level[parent]+1;
+				visited[adj[parent][i]]=true;
+				q.push(adj[parent][i]);
+			}
+		}
+	}	
+}
